@@ -1,1 +1,1 @@
-### Landingi Blog
+# Landingi Blog

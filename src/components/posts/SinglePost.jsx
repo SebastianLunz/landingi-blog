@@ -61,7 +61,7 @@ const SinglePost = ({ match }) => {
         <div className={styles.comments}>
           <h4 className={styles.comments__header}>Comments:</h4>
           { content }
-          <AddCommentForm />
+          <AddCommentForm postId={postId}/>
         </div>
       </div>
     </div>

@@ -42,7 +42,11 @@ export const addCommentAsync = createAsyncThunk(
 export const commentsSlice = createSlice({
   name: 'comments',
   initialState,
-  reducers: {},
+  reducers: {
+    commentAdded(state, action) {
+      state.comments.push(action.payload)
+    }
+  },
   extraReducers: {
     [getCommentsAsync.pending]: (state, action) => {
       state.status = 'loading'
@@ -57,6 +61,8 @@ export const commentsSlice = createSlice({
     }
   },
 });
+
+export const { commentAdded } = commentsSlice.actions;
 
 export default commentsSlice.reducer;
 

@@ -1,14 +1,35 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
+import { commentAdded } from "../../app/commentsSlice";
 
-const AddCommentForm = ({ match }) => {
-  // const { postId} = match.params;
+const AddCommentForm = ({ postId }) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ body, setBody ] = useState('');
 
+  const dispatch = useDispatch();
+
   const onNameChange = e => setName(e.target.value);
   const onEmailChange = e => setEmail(e.target.value);
   const onBodyChange = e => setBody(e.target.value);
+
+  const onSaveCommentClicked = () => {
+    if (name && email && body) {
+      dispatch(
+        commentAdded({
+          postId,
+          id: nanoid(),
+          name,
+          email,
+          body
+        })
+      )
+      setName('');
+      setEmail('');
+      setBody('');
+    }
+  }
 
   return (
     <div>
@@ -37,7 +58,7 @@ const AddCommentForm = ({ match }) => {
           value={body}
           onChange={onBodyChange}
         />
-        <button type="button">Save Comment</button>
+        <button type="button" onClick={onSaveCommentClicked}>Save Comment</button>
       </form>
     </div>
   )
