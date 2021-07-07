@@ -4,9 +4,8 @@
 
 - Na stronie głównej wyświetlamy listę artykułów z odnośnikiem do pełnej wersji. Artykuł zawiera pełny opis, listę komentarzy. Dodatkowo użytkownik ma możliwość dodania komentarza.
 
-### Wymagane:
+### Standard ES6+
 
-- standard ES6+
 - zmienne ‘let’ oraz ‘const’
 - destrukturyzacja
 - async/await
@@ -16,8 +15,7 @@
 - zastosowanie biblioteki react-router do obsługi routingu i redux do zarządzania stanem aplikacji
 - CSS3 w notacji BEM
 
-### Dodatkowe punkty:
+### Dodatkowo
 
 - brak użycia bibliotek do stylowania
 - brak użycia create-react-app
-- nietuzinkowy UI
