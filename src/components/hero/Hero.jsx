@@ -7,6 +7,7 @@ import heroImage2 from "../../images/mohammadreza-alidoost-0rUp9vgyEYo-unsplash.
 const Hero = () => {
   return (
     <div className={styles.hero}>
+      
       <div className={styles.hero__box}>
         <div className={styles.hero__textWrapper}>
         <h1 className={`${styles.hero__text} ${styles.hero__textTitle}`}>Landingi blog example</h1>

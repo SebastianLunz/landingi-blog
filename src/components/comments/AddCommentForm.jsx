@@ -2,16 +2,28 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { commentAdded } from "../../app/commentsSlice";
+import isEmail from "validator/lib/isEmail";
 
 const AddCommentForm = ({ postId }) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ body, setBody ] = useState('');
+  const [ emailError, setEmailError] = useState('');
 
   const dispatch = useDispatch();
 
   const onNameChange = e => setName(e.target.value);
-  const onEmailChange = e => setEmail(e.target.value);
+  const onEmailChange = e => {
+    setEmail(() => {
+      let correctEmail = e.target.value;
+      if (isEmail(correctEmail)) {
+        setEmailError('Valid Email :)')
+        return correctEmail;
+      } else {
+        setEmailError('Enter valid Email!');
+      }
+    })
+  };
   const onBodyChange = e => setBody(e.target.value);
 
   const onSaveCommentClicked = () => {
@@ -33,7 +45,6 @@ const AddCommentForm = ({ postId }) => {
 
   return (
     <div>
-      <h2>Add a New Comment</h2>
       <form>
         <label htmlFor="commentName">Comment Name:</label>
         <input
@@ -51,6 +62,9 @@ const AddCommentForm = ({ postId }) => {
           value={email}
           onChange={onEmailChange}
         />
+        <p>
+          { emailError }
+        </p>
         <label htmlFor="commentBody">Body:</label>
         <textarea
           id="commentBody"
@@ -58,6 +72,7 @@ const AddCommentForm = ({ postId }) => {
           value={body}
           onChange={onBodyChange}
         />
+        <br/>
         <button type="button" onClick={onSaveCommentClicked}>Save Comment</button>
       </form>
     </div>

@@ -1,0 +1,115 @@
+/**
+ * Buttons
+ */
+.button,
+a.button,
+button,
+[type="submit"],
+[type="reset"],
+[type="button"] {
+  -webkit-appearance: none;
+  display: inline-block;
+  border: 1px solid #8e65c0;
+  border-radius: 4px;
+  background: #8e65c0;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  font-size: 1rem;
+  text-transform: none;
+  padding: 0.75rem 1.25rem;
+  margin: 0 0 0.5rem 0;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.button:hover,
+a.button:hover,
+button:hover,
+[type="submit"]:hover,
+[type="reset"]:hover,
+[type="button"]:hover {
+  border: 1px solid #8452c2;
+  background: #8452c2;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button:focus,
+.button:active,
+a.button:focus,
+a.button:active,
+button:focus,
+button:active,
+[type="submit"]:focus,
+[type="submit"]:active,
+[type="reset"]:focus,
+[type="reset"]:active,
+[type="button"]:focus,
+[type="button"]:active {
+  border: 1px solid #8452c2;
+  background: #8452c2;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button::-moz-focus-inner,
+a.button::-moz-focus-inner,
+button::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="button"]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Forms
+ */
+[type="email"],
+[type="text"],
+textarea {
+  display: block;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  padding: 0.75rem;
+  outline: none;
+  background: transparent;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 100%;
+  line-height: 1;
+}
+
+[type="email"]:hover,
+[type="text"]:hover,
+textarea:hover {
+  border: 1px solid #c5c5c5;
+}
+
+[type="email"]:focus,
+[type="email"]:active,
+[type="text"]:focus,
+[type="text"]:active,
+textarea:focus,
+textarea:active {
+  border: 1px solid #8e65c0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #9c7fc0;
+}
+
+textarea {
+  overflow: auto;
+  height: auto;
+}
+
+label {
+  font-weight: 600;
+  max-width: 100%;
+  display: block;
+  margin: 1rem 0 0.5rem;
+}

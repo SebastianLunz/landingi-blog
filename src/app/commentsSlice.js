@@ -8,36 +8,14 @@ const initialState = {
 
 export const getCommentsAsync = createAsyncThunk(
   "comments/getCommentsAsync",
-  async (payload) => {
-    const resp = await fetch(`https://jsonplaceholder.typicode.com/posts/${payload.postId}/comments`);
+  async () => {
+    const resp = await fetch(`https://jsonplaceholder.typicode.com/comments`);
     if (resp.ok) {
       const comments = await resp.json();
       return comments;
     }
   }
 );
-
-export const addCommentAsync = createAsyncThunk(
-  "comments/addCommentAsync",
-  async initialComment => {
-    const resp = await fetch(`https://jsonplaceholder.typicode.com/posts/${payload.postId}/comments`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name: payload.name,
-        email: payload.email,
-        body: payload.body,
-        postId: payload.posyId
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    });
-    if (resp.ok) {
-      const comment = await resp.json();
-      return comment;
-    }
-  }
-)
 
 export const commentsSlice = createSlice({
   name: 'comments',
@@ -53,7 +31,7 @@ export const commentsSlice = createSlice({
     },
     [getCommentsAsync.fulfilled]: (state, action) => {
       state.status = 'succeeded'
-      state.comments = state.comments.concat(action.payload)
+      state.comments = action.payload
     },
     [getCommentsAsync.rejected]: (state, action) => {
       state.status = 'failed'
@@ -67,5 +45,8 @@ export const { commentAdded } = commentsSlice.actions;
 export default commentsSlice.reducer;
 
 export const selectAllPostComments = state => state.comments.comments;
+
+export const selectCommentsByPostId = (state, postId) =>
+  state.comments.comments.filter(comment => comment.postId === postId);
 
 export const selectCommentsStatus = state => state.comments.status;

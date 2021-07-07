@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from "./App.module.css";
+import "./App.css";
+import About from  "./components/about/About.jsx";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import PostList from "./components/posts/PostList";
@@ -24,6 +25,7 @@ const App = () => {
           )}
         />
         <Route exact path="/post/:postId" component={SinglePost}/>
+        <Route exact path="/about" component={About}/>
         <Redirect to="/" />
       </Switch>
     </Router>

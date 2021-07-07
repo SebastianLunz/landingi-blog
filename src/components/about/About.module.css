@@ -1,0 +1,9 @@
+.about {
+  margin: 25px 13%;
+}
+.about__title {
+  font-weight: 400;
+}
+.about__text {
+  padding-left: 20px;
+}

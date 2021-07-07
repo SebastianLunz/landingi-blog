@@ -1,0 +1,16 @@
+.navbar {
+  width: 100%;
+  background-color: #8e65c0;
+}
+.navbar__links {
+  padding: 25px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.navbar__link {
+  color: #fff;
+  text-transform: lowercase;
+  padding: 25px;
+}

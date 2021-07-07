@@ -57,3 +57,13 @@
 .comment__body {
   font-size: 14px;
 }
+.comment__formHeader {
+  font-weight: 400;
+  margin: 25px 0 10px 0;
+  margin: 25px 5% 10px 5%;
+  padding-top: 25px;
+  border-top: solid 1px #efe6f8;
+}
+.comment__form {
+  margin: 0 10%;
+}

@@ -1,19 +1,18 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import styles from "./Navbar.module.css";
 
 
 const Navbar = () => {
 
   return (
     <nav>
-      <section>
-        <div className="navContent">
-          <div className="navLinks">
-            <Link to="/">Landingi Blog</Link>
+        <div className={styles.navbar}>
+          <div className={styles.navbar__links}>
+            <Link to="/" className={styles.navbar__link}>Landingi Blog</Link>
+            <Link to="/about" className={styles.navbar__link}>About</Link>
           </div>
         </div>
-      </section>
     </nav>
   )
 };

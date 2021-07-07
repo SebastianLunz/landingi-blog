@@ -14,11 +14,6 @@
   background-image: radial-gradient(#fff 1px, transparent 1.2px);
   background-size: 25px 25px;
 }
-/* .hero__imageBackgroud {
-  background-image: radial-gradient(#fff 2px, transparent 2px);
-  background-size: 50px;
-  height: 100%;
-} */
 .hero__imageLeft {
   height: 100%;
   width: 35%;

@@ -1,20 +1,15 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { selectPostById } from "../../app/postsSlice";
-import {
-  selectAllPostComments,
-  selectCommentsStatus,
-  getCommentsAsync
-} from "../../app/commentsSlice";
+import { selectCommentsByPostId, selectCommentsStatus, } from "../../app/commentsSlice";
 import styles from "./Posts.module.css";
 import AddCommentForm from "../comments/AddCommentForm";
 
 
 const SinglePost = ({ match }) => {
-  const { postId  } = match.params;
-  const dispatch = useDispatch();
+  const postId = parseInt(match.params.postId);
   const post = useSelector(state => selectPostById(state, postId));
-  const comments = useSelector(selectAllPostComments);
+  const comments = useSelector(state => selectCommentsByPostId(state, postId));
   const commentsStatus = useSelector(selectCommentsStatus);
 
   if (!post) {
@@ -24,12 +19,6 @@ const SinglePost = ({ match }) => {
       </div>
     )
   }
-
-  useEffect(() => {
-    if (commentsStatus === 'idle') {
-      dispatch(getCommentsAsync({postId}));
-    }
-  }, [commentsStatus, dispatch]);
 
   let content;
 
@@ -57,11 +46,13 @@ const SinglePost = ({ match }) => {
       <div className={styles.post}>
         <p key={post.id} className={styles.posts__title}>{post.title}</p>
         <p className={styles.post__body}>{post.body}</p>
-        <button>Add to favourite</button>
         <div className={styles.comments}>
           <h4 className={styles.comments__header}>Comments:</h4>
           { content }
-          <AddCommentForm postId={postId}/>
+          <h4 className={styles.comment__formHeader}>Add a New Comment</h4>
+          <div className={styles.comment__form}>
+            <AddCommentForm postId={postId}/>
+          </div>
         </div>
       </div>
     </div>
