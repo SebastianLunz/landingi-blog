@@ -1,9 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectPostById } from "../../app/postsSlice";
-import { selectCommentsByPostId, selectCommentsStatus, } from "../../app/commentsSlice";
 import styles from "./Posts.module.css";
 import AddCommentForm from "../comments/AddCommentForm";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectFavouritePosts,
+  selectPostById,
+  addToFavourites,
+  removeFromFavourites
+} from "../../app/postsSlice";
+import { selectCommentsByPostId, selectCommentsStatus, } from "../../app/commentsSlice";
 
 
 const SinglePost = ({ match }) => {
@@ -11,6 +16,8 @@ const SinglePost = ({ match }) => {
   const post = useSelector(state => selectPostById(state, postId));
   const comments = useSelector(state => selectCommentsByPostId(state, postId));
   const commentsStatus = useSelector(selectCommentsStatus);
+  const favouritePosts = useSelector(selectFavouritePosts);
+  const dispatch = useDispatch();
 
   if (!post) {
     return (
@@ -18,7 +25,19 @@ const SinglePost = ({ match }) => {
         <h2>Post not found!</h2>
       </div>
     )
-  }
+  };
+
+  const toggleFavouriteClicked = () => {
+    const postInFavourites = favouritePosts.includes(post);
+    if (!postInFavourites) {
+      dispatch(addToFavourites(post));
+    } else {
+      const favouritesWithoutPost = favouritePosts.filter(
+        favPost => favPost.id !== post.id
+      );
+      dispatch(removeFromFavourites(favouritesWithoutPost));
+    }
+  };
 
   let content;
 
@@ -38,6 +57,8 @@ const SinglePost = ({ match }) => {
     content = <div>{ error }</div>
   }
 
+  console.log(favouritePosts);
+
   return (
     <div className={styles.posts}>
       <h2>
@@ -46,6 +67,12 @@ const SinglePost = ({ match }) => {
       <div className={styles.post}>
         <p key={post.id} className={styles.posts__title}>{post.title}</p>
         <p className={styles.post__body}>{post.body}</p>
+        <button onClick={toggleFavouriteClicked}>
+          {favouritePosts.find(favPost => favPost.id === post.id)
+            ? "Remove from favourite"
+            : "Add to favourite"          
+          }
+        </button>
         <div className={styles.comments}>
           <h4 className={styles.comments__header}>Comments:</h4>
           { content }

@@ -10,6 +10,7 @@ const Navbar = () => {
         <div className={styles.navbar}>
           <div className={styles.navbar__links}>
             <Link to="/" className={styles.navbar__link}>Landingi Blog</Link>
+            <Link to="/favouritePosts" className={styles.navbar__link}>Favourite Posts</Link>
             <Link to="/about" className={styles.navbar__link}>About</Link>
           </div>
         </div>

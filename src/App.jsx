@@ -1,11 +1,12 @@
 import React from 'react';
 import "./App.css";
-import About from  "./components/about/About.jsx";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
-import PostList from "./components/posts/PostList";
+import HomePage from './pages/HomePage';
 import SinglePost from "./components/posts/SinglePost";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import FavouritePage from './pages/FavouritePage';
+import About from  "./pages/about/About";
 
 
 const App = () => {
@@ -20,12 +21,13 @@ const App = () => {
           path="/"
           render={() => (
             <React.Fragment>
-              <PostList />
+              <HomePage />
             </React.Fragment>
           )}
         />
-        <Route exact path="/post/:postId" component={SinglePost}/>
-        <Route exact path="/about" component={About}/>
+        <Route path="/post/:postId" component={SinglePost}/>
+        <Route path="/favouritePosts" component={FavouritePage}/>
+        <Route path="/about" component={About}/>
         <Redirect to="/" />
       </Switch>
     </Router>

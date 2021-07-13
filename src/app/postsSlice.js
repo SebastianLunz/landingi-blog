@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   posts: [],
+  favouritePosts: [],
   status: 'idle',
   error: null
 }
@@ -20,7 +21,14 @@ export const getPostsAsync = createAsyncThunk(
 export const postsSlice = createSlice({
   name: 'posts',
   initialState,
-  reducers: {},
+  reducers: {
+    addToFavourites(state, action) {
+      state.favouritePosts.push(action.payload)
+    },
+    removeFromFavourites(state, action) {
+      state.favouritePosts = action.payload;
+    },
+  },
   extraReducers: {
     [getPostsAsync.pending]: (state, action) => {
       state.status = 'loading'
@@ -36,6 +44,8 @@ export const postsSlice = createSlice({
   },
 });
 
+export const { addToFavourites, removeFromFavourites } = postsSlice.actions;
+
 export default postsSlice.reducer;
 
 export const selectAllPosts = state => state.posts.posts;
@@ -44,3 +54,5 @@ export const selectPostById = (state, postId) =>
   state.posts.posts.find(post => post.id === postId);
 
 export const selectPostsStatus = state => state.posts.status;
+
+export const selectFavouritePosts = state => state.posts.favouritePosts;

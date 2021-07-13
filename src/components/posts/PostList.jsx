@@ -1,19 +1,9 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch} from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
-import { selectAllPosts, selectPostsStatus, getPostsAsync } from "../../app/postsSlice";
 import styles from "./Posts.module.css";
 
-const PostList = () => {
-  const dispatch = useDispatch();
-  const posts = useSelector(selectAllPosts);
-  const postStatus = useSelector(selectPostsStatus);
-
-  useEffect(() => {
-    if (postStatus === 'idle') {
-      dispatch(getPostsAsync());
-    }
-  }, [postStatus, dispatch]);
+const PostList = (props) => {
+  const { posts, postStatus, postTypes } = props;
 
   let content;
 
@@ -34,7 +24,7 @@ const PostList = () => {
 
   return (
     <div className={styles.posts}>
-      <h2>Latest Posts</h2>
+      <h2>{ postTypes }</h2>
       { content }
     </div>
   )
