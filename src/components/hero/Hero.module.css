@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-color: #8e65c0;
+  background-color: transparent;
 }
 .hero__box {
   width: 50%;
@@ -11,26 +11,30 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  background-image: radial-gradient(#fff 1px, transparent 1.2px);
-  background-size: 25px 25px;
+  justify-content: space-around;
+  padding: 0 25px;
 }
 .hero__imageLeft {
   height: 100%;
   width: 35%;
-  margin: 5% 2% 5% 13%;
   padding-top: 10%;
 }
 .hero__imageRight {
   height: 100%;
   width: 35%;
-  margin: 5% 13% 5% 2%;
 }
 .hero__image_display {
   display: block;
   width: 100%;
 }
+.hero__textWrapper {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
 .hero__text {
-  padding: 100px 20px 100px 13%;
   color: #fff;
   text-align: left;
   font-size: 24px;
@@ -41,8 +45,7 @@
 }
 @media screen and (max-width: 1800px) {
   .hero__text {
-    padding: 50px 20px 0 20px;
-    padding: 50px 20px 50px 13%;
+    padding: 0 8%;
   }
 }
 @media screen and (max-width: 1300px) {
@@ -50,32 +53,26 @@
     font-size: 65px;
   }
   .hero__text {
-    padding: 50px 20px 20px 13%;
+    padding: 0 8%;
   }
 }
 @media screen and (max-width: 1100px) {
   .hero__textTitle {
     font-size: 50px;
   }
-  .hero__text {
-    padding-top: 50px;
-  }
 }
 @media screen and (max-width: 992px) {
-  .hero__image_display {
-    display: block;
-    width: 100%;
+  .hero__textWrapper {
+    padding: 25px 0;
   }
-  .hero__image {
-    background-image: none;
-    width: 100%;
+  .hero__imageWrapper {
+    padding: 25px 0;
   }
   .hero__box {
     width: 100%;
   }
   .hero__text {
     text-align: center;
-    padding: 50px 20px 0 20px;
   }
 }
 @media screen and (max-width: 576px) {

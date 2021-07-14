@@ -1,9 +1,19 @@
 .about {
-  margin: 25px 13%;
+  margin: 25px 0;
 }
 .about__title {
   font-weight: 400;
 }
 .about__text {
   padding-left: 20px;
+}
+@media screen and (max-width: 1800px) {
+  .about {
+    padding: 0 4%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .about {
+    padding: 0 8%;
+  }
 }

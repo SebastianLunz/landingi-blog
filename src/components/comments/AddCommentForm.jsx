@@ -46,7 +46,7 @@ const AddCommentForm = ({ postId }) => {
   return (
     <div>
       <form>
-        <label htmlFor="commentName">Comment Name:</label>
+        <label htmlFor="commentName">Name:</label>
         <input
           type="text"
           id="commentName"
@@ -54,7 +54,7 @@ const AddCommentForm = ({ postId }) => {
           value={name}
           onChange={onNameChange}
         />
-        <label htmlFor="commentEmail">Comment Email:</label>
+        <label htmlFor="commentEmail">Email:</label>
         <input
           type="email"
           id="commentEmail"

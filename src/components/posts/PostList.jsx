@@ -23,9 +23,11 @@ const PostList = (props) => {
   }
 
   return (
-    <div className={styles.posts}>
-      <h2>{ postTypes }</h2>
-      { content }
+    <div className="container">
+      <div className={styles.posts}>
+        <h2>{ postTypes }</h2>
+        { content }
+      </div>
     </div>
   )
 }

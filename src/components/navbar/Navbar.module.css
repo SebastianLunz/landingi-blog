@@ -1,6 +1,6 @@
 .navbar {
   width: 100%;
-  background-color: #8e65c0;
+  background-color: transparent;
 }
 .navbar__links {
   padding: 25px 0;
@@ -12,5 +12,6 @@
 .navbar__link {
   color: #fff;
   text-transform: lowercase;
+  letter-spacing: 1px;
   padding: 25px;
 }

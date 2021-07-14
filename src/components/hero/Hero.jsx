@@ -6,21 +6,20 @@ import heroImage2 from "../../images/mohammadreza-alidoost-0rUp9vgyEYo-unsplash.
 
 const Hero = () => {
   return (
-    <div className={styles.hero}>
-      
+    <div className={styles.hero}> 
       <div className={styles.hero__box}>
         <div className={styles.hero__textWrapper}>
-        <h1 className={`${styles.hero__text} ${styles.hero__textTitle}`}>Landingi blog example</h1>
-        <p className={styles.hero__text}>This simple blog allows you to choose your favourites posts and gives a comment</p>
+          <h1 className={`${styles.hero__text} ${styles.hero__textTitle}`}>Landingi blog example</h1>
+          <p className={styles.hero__text}>This simple blog allows you to choose your favourites posts and give a comment</p>
         </div>
       </div>
       <div className={styles.hero__box}>
         <div className={styles.hero__imageWrapper}>
           <div className={styles.hero__imageLeft}>
-            <img className={styles.hero__image_display} src={heroImage1} alt="heroImage" />
+            <img className={styles.hero__image_display} src={heroImage1} alt="heroImage1" />
           </div>
           <div className={styles.hero__imageRight}>
-            <img className={styles.hero__image_display} src={heroImage2} alt="heroImage" />
+            <img className={styles.hero__image_display} src={heroImage2} alt="heroImage2" />
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 .posts {
   width: 100%;
-  padding: 50px 6.5%;
+  padding: 50px 0;
 }
 .post {
   width: 100%;
-  padding: 5px 5%;
+  padding: 5px 3%;
 }
 .post__link {
   color: #8e65c0;
@@ -28,9 +28,14 @@
   text-transform: uppercase;
   color: #8e65c0;
 }
+@media screen and (max-width: 1800px) {
+  .posts {
+    padding: 50px 4%;
+  }
+}
 @media screen and (max-width: 992px) {
   .posts {
-    padding: 50px 13%;
+    padding: 50px 8%;
   }
 }
 .comments {
@@ -42,7 +47,7 @@
   margin: 25px 0 10px 0;
 }
 .comment {
-  margin: 0 5%;
+  margin: 0 3%;
   border-top: solid 1px #efe6f8;
 }
 .comment__name {
@@ -60,10 +65,10 @@
 .comment__formHeader {
   font-weight: 400;
   margin: 25px 0 10px 0;
-  margin: 25px 5% 10px 5%;
+  margin: 25px 3% 10px 3%;
   padding-top: 25px;
   border-top: solid 1px #efe6f8;
 }
 .comment__form {
-  margin: 0 10%;
+  margin: 0 6%;
 }

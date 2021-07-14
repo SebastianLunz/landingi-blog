@@ -1,0 +1,16 @@
+.header {
+  width: 100%;
+  background-color: #8e65c0;
+  background-image: radial-gradient(#fff 1px, transparent 1.2px);
+  background-size: 25px 25px;
+}
+.header__inside {
+  width: 100%;
+  background: linear-gradient(to right, #8e65c0 50%, transparent 50%);
+  padding-bottom: 25px;
+}
+@media screen and (max-width: 992px) {
+  .header__inside {
+    background-color: #8e65c0;
+  }
+}

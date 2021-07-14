@@ -1,8 +1,7 @@
 import React from 'react';
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
-import Hero from "./components/hero/Hero";
+import Header from "./components/header/Header";
 import HomePage from './pages/HomePage';
 import SinglePost from "./components/posts/SinglePost";
 import FavouritePage from './pages/FavouritePage';
@@ -10,11 +9,9 @@ import About from  "./pages/about/About";
 
 
 const App = () => {
-
   return (
     <Router>
-      <Navbar />
-      <Hero />
+      <Header />
       <Switch>
         <Route
           exact

@@ -57,9 +57,8 @@ const SinglePost = ({ match }) => {
     content = <div>{ error }</div>
   }
 
-  console.log(favouritePosts);
-
   return (
+    <div className="container">
     <div className={styles.posts}>
       <h2>
         Post Details
@@ -82,6 +81,7 @@ const SinglePost = ({ match }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 };
